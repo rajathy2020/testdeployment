@@ -13,7 +13,6 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
-        password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         source: "backend/hello.txt"
         target: "backend"
