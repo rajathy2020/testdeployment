@@ -27,6 +27,7 @@ jobs:
         script: |
           echo "I am hello"
           cd testdeploymentviagithub
-          docker-compose -f docker.compose.yml restart api
+          echo "$(ls)"
+          docker-compose -f docker-compose.yml restart api
           
         
