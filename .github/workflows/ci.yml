@@ -15,4 +15,4 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.PORT }}
         source: "backend/hello.txt"
-        target: "backend"
+        target: "heehehe"
