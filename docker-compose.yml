@@ -1,0 +1,19 @@
+version: '3.0'
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: ./build_new/api/Dockerfile
+    command: 'uvicorn --fd 0 api.api:app --host="0.0.0.0" --port=8090 --reload'
+    restart: always
+    env_file: .env
+    container_name: fraud
+    image: fraud1
+
+    volumes:
+      - ./backend:/backend
+
+    environment:
+      - PYTHONPATH=/backend/code
+    ports:
+      - "8091:8090"
