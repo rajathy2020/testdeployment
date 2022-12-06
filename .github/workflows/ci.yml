@@ -24,10 +24,5 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.PORT }}
-        script: |
-          echo "I am hello"
-          cd testdeploymentviagithub
-          echo "$(ls)"
-          docker-compose -f docker-compose.yml up -d api
+        script: deploy.sh
           
-        
