@@ -26,5 +26,6 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd testdeploymentviagithub
+          chmod +x ./deploy.sh
           ./deploy.sh
         
