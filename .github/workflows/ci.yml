@@ -25,6 +25,6 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.PORT }}
         script: |
-          whoami
-          ls -al
+          echo "I am hello"
+          
         
