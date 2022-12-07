@@ -5,8 +5,15 @@ jobs:
     backend: 
       name: Build
       runs-on: ubuntu-latest
+      env:
+        BRANCHNAME: default
       steps:
         - name: Filter Github branch
           run: |
             BRANCHNAME=${GITHUB_REF#refs/heads/}
             echo $BRANCHNAME
+
+        - name: Filter Github branch2
+          run: |
+            size=${#BRANCHNAME} 
+            echo $size
