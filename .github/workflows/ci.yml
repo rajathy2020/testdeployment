@@ -10,19 +10,18 @@ jobs:
       steps:
         - name: Filter Github branch
           run: |
+            BRANCHNAME=${GITHUB_REF#refs/heads/}
             echo "Filter Branch name is ${GITHUB_REF#refs/heads/}"
-            echo "GITHUB_FILTER_BRANCH_NAME=${GITHUB_REF#refs/heads/} >> $GITHUB_ENV
+            echo "GITHUB_FILTER_BRANCH_NAME=$BRANCHNAME" >> $GITHUB_ENV
 
         - name: Filter Github branch2
           run: |
-            echo "${{env.GITHUB_FILTER_BRANCH_NAME}}"
-            size=${{ env.GITHUB_FILTER_BRANCH_NAME }}
-            echo $size
-            size=${#size} 
+            BRANCHNAME=${{ env.GITHUB_FILTER_BRANCH_NAME }}
+            echo $BRANCHNAME
+            size=${#BRANCHNAME} 
             echo "$size"
 
 
           
 
 
-            run: echo "docker_tag=$(echo ${GITHUB_REF} | cut -d'/' -f3)-${GITHUB_SHA}" >> $GITHUB_OUTPUT
