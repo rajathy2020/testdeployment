@@ -11,9 +11,14 @@ jobs:
         - name: Filter Github branch
           run: |
             BRANCHNAME=${GITHUB_REF#refs/heads/}
-            echo $BRANCHNAME
+            echo "Filter Branch name is $BRANCHNAME"
+            echo "GITHUB_FILTER_BRANCH_NAME=$FILTER_BRANCH_NAME" >> $GITHUB_ENV
 
         - name: Filter Github branch2
           run: |
-            size=${#BRANCHNAME} 
-            echo $size
+            echo $GITHUB_FILTER_BRANCH_NAME
+            size=${#GITHUB_FILTER_BRANCH_NAME} 
+            echo "$size"
+
+
+          
