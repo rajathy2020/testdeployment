@@ -9,7 +9,7 @@ jobs:
         BRANCHNAMET: default55555
       steps:
         - name: Filter Github branch
-          run: | 
+          script: | 
             echo $BRANCHNAMET
             BRANCHNAME=${GITHUB_REF#refs/heads/}
             hhh=${GITHUB_SHA}
@@ -18,7 +18,7 @@ jobs:
             echo "GITHUB_FILTER_BRANCH_NAME=$value" >> $GITHUB_ENV
 
         - name: Filter Github branch2
-          run: |
+          script: |
             BRANCHNAME=${{ env.GITHUB_FILTER_BRANCH_NAME }}
             echo $BRANCHNAME
             size=${#BRANCHNAME} 
