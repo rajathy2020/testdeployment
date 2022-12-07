@@ -16,7 +16,7 @@ jobs:
 
         - name: Filter Github branch2
           run: |
-            echo "${{env.ITHUB_FILTER_BRANCH_NAME}}"
+            echo "${{env.GITHUB_FILTER_BRANCH_NAME}}"
             size= ${{ env.GITHUB_FILTER_BRANCH_NAME }}
             echo "$size"
             size=${#size} 
