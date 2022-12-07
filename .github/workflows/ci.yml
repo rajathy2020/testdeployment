@@ -6,19 +6,15 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     env:
-        Branchname: master
+        BRANCHNAME: DEFAULT5
     steps:
         - name: Filter Github branch
           script: |
-            Branchname=${GITHUB_REF#refs/heads/}
-            echo $Branchname
+            BRANCHNAME=${GITHUB_REF#refs/heads/}
+            echo $BRANCHNAME
 
         - name: Filter Github branch1
           script: |
-            size=${#Branchname} 
-            echo $size
-
-
-      
-
-            
+            size=${#BRANCHNAME} 
+            echo "Filter Branch name is $size"
+   
