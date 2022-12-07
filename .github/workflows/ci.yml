@@ -10,9 +10,3 @@ jobs:
           script: |
             BRANCHNAME=${GITHUB_REF#refs/heads/}
             echo $BRANCHNAME
-
-        - name: Filter Github branch1
-          script: |
-            size=${#BRANCHNAME} 
-            echo "Filter Branch name is $size"
-   
