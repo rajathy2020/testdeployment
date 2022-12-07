@@ -9,18 +9,22 @@ jobs:
         BRANCHNAMET: default55555
       steps:
         - name: Filter Github branch
-          script: | 
+          run: | 
             echo $BRANCHNAMET
             BRANCHNAME=${GITHUB_REF#refs/heads/}
             hhh=${GITHUB_SHA}
             value="${hhh}text${BRANCHNAME}"
             echo "Filter Branch name is ${GITHUB_REF#refs/heads/}"
+            echo "Filter Branch name is $value"
             echo "GITHUB_FILTER_BRANCH_NAME=$value" >> $GITHUB_ENV
 
         - name: Filter Github branch2
-          script: |
+          run: |
             BRANCHNAME=${{ env.GITHUB_FILTER_BRANCH_NAME }}
             echo $BRANCHNAME
+            export HCLOUD_TOKEN=$BRANCHNAME
+            ttt=export | grep HCLOUD_TOKEN
+            echo "exportedd token ${ttt}"
             size=${#BRANCHNAME} 
             echo "$size"
 
