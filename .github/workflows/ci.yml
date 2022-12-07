@@ -10,5 +10,7 @@ jobs:
       run: |
         # Branch name
         echo ${GITHUB_REF#refs/heads/}
+        echo Hello
+
 
     
