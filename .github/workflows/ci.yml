@@ -5,8 +5,6 @@ jobs:
     backend: 
     name: Build
     runs-on: ubuntu-latest
-    env:
-        BRANCHNAME: DEFAULT5
     steps:
         - name: Filter Github branch
           script: |
