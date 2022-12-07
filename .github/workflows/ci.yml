@@ -1,31 +1,25 @@
 name: CI
-on: [push]
+on:
+    - push
 jobs:
-  backend:
+    backend: 
     name: Build
     runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
+    env:
+        Branchname: ""
 
-    - name: copy file via ssh password
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        port: ${{ secrets.PORT }}
-        source: "."
-        target: "testdeploymentviagithub"
-    
-    - name: restart api
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        port: ${{ secrets.PORT }}
-        script: |
-          cd testdeploymentviagithub
-          chmod +x ./deploy.sh
-          ./deploy.sh
-        
+    steps:
+        - name: Filter Github branch
+          script: |
+            Branchname=${GITHUB_REF#refs/heads/}
+            echo $Branchname
+
+        - name: Filter Github branch1
+          script: |
+            size=${#Branchname} 
+            echo $size
+
+
+      
+
+            
